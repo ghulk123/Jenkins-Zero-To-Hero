@@ -53,6 +53,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
+                    git config --global --unset credential.helper
                     git config user.email "jatin.xyz@gmail.com"
                     git config user.name "Jatin Gupta"
                     BUILD_NUMBER=${BUILD_NUMBER}
